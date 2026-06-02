@@ -12,7 +12,7 @@ const week = ref('')
 let timeInterval: NodeJS.Timer
 
 function refreshTime() {
-  const now = dayjs().format('YYYY年MM月DD日 HH:mm')
+  const now = dayjs().format('YYYY年MM月DD日 HH:mm:ss')
   const timeArr = now.split(' ')
   date.value = timeArr[0]
   time.value = timeArr[1]
@@ -37,12 +37,6 @@ function timing() {
   // 开启定时器
   timeInterval = setInterval(() => {
     refreshTime()
-    // 若 nowMinute !== newMinute 说明开始了新的分钟
-    if (nowMinute !== time.value) {
-      // 清除每秒定时器 开启分钟定时器
-      clearInterval(timeInterval)
-      timeInterval = setInterval(refreshTime, 60000)
-    }
   }, 1000)
 }
 onMounted(() => {

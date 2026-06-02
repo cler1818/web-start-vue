@@ -1,4 +1,4 @@
-const FAVICON_API = 'https://api.iowen.cn/favicon/'
+const FAVICON_API = 'https://0x3.com/icon?host='
 
 const siteToUrl: Map<string, string> = new Map()
 const sites: string[] = [
@@ -43,5 +43,5 @@ export function getFaviconUrl(url: string) {
   if (optUrl)
     return optUrl
 
-  return `${FAVICON_API + paramsUrl}.png`
+  return `${FAVICON_API}${paramsUrl}`
 }
